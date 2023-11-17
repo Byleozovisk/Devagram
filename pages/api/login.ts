@@ -5,8 +5,7 @@ import type {loginResposta} from '../../types/loginResposta';
 import md5 from 'md5';
 import { usuarioModel } from "../../models/usuarioModels";
 import jwt from 'jsonwebtoken';
-
-
+import {politicaCORS} from '../../middiewares/publicarCORS';
 
 const endpointLogin = async (
     req : NextApiRequest,
@@ -38,4 +37,4 @@ if (req.method === 'POST'){
 }
             
 
-export default conectarMongoDB(endpointLogin);
+export default politicaCORS (conectarMongoDB(endpointLogin));
